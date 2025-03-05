@@ -20,7 +20,7 @@ export default function DefaultLayout({ children }: IProps) {
     <div className="h-dvh flex relative ">
       {/* Sidebar */}
       <aside
-        className={`absolute z-10 h-full lg:w-64 transition-transform duration-300 
+        className={`absolute z-20 h-full lg:w-64 transition-transform duration-300 
           ${showSideBar ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <Sidebar handleShowSideBar={() => setShowSideBar(!showSideBar)} isDesktop={isDesktop} />
@@ -29,7 +29,7 @@ export default function DefaultLayout({ children }: IProps) {
       {/* Overlay only visible on mobile devices */}
       {showSideBar && !isDesktop && (
         <div
-          className="absolute inset-0 z-0 bg-neutral-950 opacity-50 lg:hidden"
+          className="absolute inset-0 z-10 bg-neutral-950 opacity-50 lg:hidden"
           onClick={() => setShowSideBar(false)}
           aria-hidden="true"
         />
