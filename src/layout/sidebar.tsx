@@ -1,14 +1,13 @@
 import ROUTES from '@/lib/routes';
-import { X, Home, Users, Box, ShoppingCart, BarChart2, Settings } from 'lucide-react';
+import { X, Home, Box, ShoppingCart, BarChart2, Settings } from 'lucide-react';
 import CustomLink from '../customs/cunstomLink';
+import useIsDesktop from '@/hook/useDesktop';
 
 interface Iprops {
   handleShowSideBar: () => void;
-  isDesktop: boolean;
 }
 const menuItems = [
   { name: 'Dashboard', icon: <Home size={20} />, link: ROUTES.home },
-  { name: 'Users', icon: <Users size={20} />, link: ROUTES.users },
   { name: 'Products', icon: <Box size={20} />, link: ROUTES.products },
   { name: 'Orders', icon: <ShoppingCart size={20} />, link: ROUTES.orders },
   { name: 'Analytics', icon: <BarChart2 size={20} />, link: ROUTES.analytics },
@@ -16,7 +15,8 @@ const menuItems = [
 ];
 
 const Sidebar = (props: Iprops) => {
-  const { handleShowSideBar, isDesktop } = props;
+  const { handleShowSideBar } = props;
+  const isDestop = useIsDesktop();
 
   return (
     <div className="w-64 flex overflow-hidden">
@@ -34,7 +34,7 @@ const Sidebar = (props: Iprops) => {
                 <CustomLink
                   href={item.link}
                   className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-800"
-                  onClick={() => !isDesktop && handleShowSideBar()}
+                  onClick={() => !isDestop && handleShowSideBar()}
                 >
                   {item.icon}
                   <span className="text-sm">{item.name}</span>

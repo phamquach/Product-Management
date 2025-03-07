@@ -1,3 +1,0 @@
-interface IUsers {
-  auth: boolean;
-}

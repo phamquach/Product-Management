@@ -4,10 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["example.com"], // Cho phép tải ảnh từ domain ngoài
+    domains: ["dummyimage.com"], // Cho phép tải ảnh từ domain ngoài
   },
   env: {
-
+    NEXT_PUBLIC_API_URL_PRODUCTS:'http://localhost:3000/products'
   },
 };
 
