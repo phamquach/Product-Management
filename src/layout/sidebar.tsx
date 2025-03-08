@@ -1,6 +1,6 @@
 import ROUTES from '@/lib/routes';
 import { X, Home, Box, ShoppingCart, BarChart2, Settings } from 'lucide-react';
-import CustomLink from '../customs/cunstomLink';
+import NavLink from '../customs/NavLink';
 import useIsDesktop from '@/hook/useDesktop';
 
 interface Iprops {
@@ -31,14 +31,14 @@ const Sidebar = (props: Iprops) => {
           <ul>
             {menuItems.map((item, index) => (
               <li key={index} className="mb-3">
-                <CustomLink
+                <NavLink
                   href={item.link}
                   className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-800"
                   onClick={() => !isDestop && handleShowSideBar()}
                 >
                   {item.icon}
                   <span className="text-sm">{item.name}</span>
-                </CustomLink>
+                </NavLink>
               </li>
             ))}
           </ul>

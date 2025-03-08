@@ -2,15 +2,21 @@ import { isNotNull } from '@/lib';
 import { ChangeEvent, useReducer, useCallback, useMemo } from 'react';
 import InputField from './InputField';
 import TextAreaField from './TextAreaField';
+import { postData } from '@/utils/postData';
+import { toast } from 'react-toastify';
+import { mutate } from 'swr';
 
 interface Action {
   type: string;
   field?: string;
-  value?: string;
+  value?: string | number | File;
 }
-
+const ACTIONS = {
+  update: 'UPDATE_FIELD',
+  reset: 'RESET_FORM',
+};
 interface Product {
-  img: string;
+  img: File | null;
   name: string;
   brand: string;
   price: number;
@@ -18,20 +24,14 @@ interface Product {
   category: string;
   description: string;
 }
-
 const initialState: Product = {
-  img: '',
+  img: null,
   name: '',
   brand: '',
   price: 0,
   quantity: 0,
   category: '',
   description: '',
-};
-
-const ACTIONS = {
-  update: 'UPDATE_FIELD',
-  reset: 'RESET_FORM',
 };
 
 function formReducer(state: Product, action: Action) {
@@ -45,25 +45,52 @@ function formReducer(state: Product, action: Action) {
   }
 }
 
-export default function Modal() {
+export default function Modal({ setShowModal }: { setShowModal: () => void }) {
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const isFormValid = useMemo(() => isNotNull(state), [state]);
 
   const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    dispatch({
-      type: ACTIONS.update,
-      field: e.target.name,
-      value: e.target.value,
-    });
+    const { name, value, files } = e.target as HTMLInputElement;
+    if (files && files.length > 0) {
+      dispatch({
+        type: ACTIONS.update,
+        field: name,
+        value: files[0],
+      });
+    } else {
+      dispatch({
+        type: ACTIONS.update,
+        field: name,
+        value: value,
+      });
+    }
   }, []);
-
-  const isFormValid = useMemo(() => isNotNull(state), [state]);
-  console.log(isFormValid);
-  console.log(state);
+  const handleOnSubmit = () => {
+    const data = { ...state, img: 'https://dummyimage.com/300x300/cccccc/000.png&text=Ergonomic+Mouse+Pad' };
+    postData(process.env.NEXT_PUBLIC_API_URL_PRODUCTS ?? '', data)
+      .then((res) => {
+        if (res?.ok) {
+          toast.success('Product added successfully!');
+          mutate(process.env.NEXT_PUBLIC_API_URL_PRODUCTS ?? '');
+        } else {
+          toast.error('Failed to add product, try again!');
+        }
+      })
+      .catch(() => {
+        toast.error('Failed to add product, try again!');
+      });
+    dispatch({ type: ACTIONS.reset });
+    setShowModal();
+  };
+  const handleCancel = () => {
+    dispatch({ type: ACTIONS.reset });
+    setShowModal();
+  };
   return (
     <>
-      <input type="checkbox" id="my_modal_6" className="modal-toggle" />
-      <div className="modal" role="dialog">
-        <div className="modal-box w-11/12 max-w-5xl">
+      <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog">
+        <div className="absolute inset-0 z-10 bg-neutral-950 opacity-50"></div>
+        <div className="modal-box z-20 opacity-100 w-11/12 max-w-5xl animation-scale-in-center">
           {/* title */}
           <h3 className="text-lg font-bold">New Product</h3>
           {/* content */}
@@ -82,7 +109,7 @@ export default function Modal() {
                 type="file"
                 id="file_img"
                 className="file-input file-input-sm focus:outline-0"
-                name='img'
+                name="img"
                 onChange={handleOnChange}
               />
             </div>
@@ -90,23 +117,12 @@ export default function Modal() {
           </form>
           {/* action */}
           <div className="modal-action">
-            <label
-              htmlFor="my_modal_6"
-              className="btn btn-outline"
-              id="next"
-              onClick={() => dispatch({ type: ACTIONS.reset })}
-            >
-              Close!
-            </label>
-            {isFormValid ? (
-              <label htmlFor="my_modal_6" className="btn btn-outline" id="next">
-                Next!
-              </label>
-            ) : (
-              <button className="btn btn-outline" disabled>
-                Next
-              </button>
-            )}
+            <button className="btn btn-outline" onClick={handleCancel}>
+              Close
+            </button>
+            <button className="btn btn-outline" onClick={handleOnSubmit} disabled={!isFormValid}>
+              Next
+            </button>
           </div>
         </div>
       </div>

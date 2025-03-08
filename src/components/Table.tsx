@@ -4,6 +4,8 @@ import { formatNumber } from '@/lib';
 import { deleteData } from '@/utils/deleteData';
 import { toast } from 'react-toastify';
 import { useSWRConfig } from 'swr';
+import Link from 'next/link';
+import ROUTES from '@/lib/routes';
 interface Iprops {
   data: IProducts[];
 }
@@ -25,9 +27,6 @@ export default function Table({ data }: Iprops) {
     }
   };
 
-  if (data.length === 0) {
-    return <div className="text-center">No results found</div>;
-  }
   return (
     <div className="w-full overflow-x-scroll dark:border rounded-box border-base-content/5 ">
       <table className="table table-zebra text-nowrap">
@@ -43,7 +42,7 @@ export default function Table({ data }: Iprops) {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <tr className="cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-600" key={item.id}>
               <th>{index + 1}</th>
               <th>{item.id}</th>
@@ -68,7 +67,9 @@ export default function Table({ data }: Iprops) {
               <td>{item.quantity}</td>
               <td>{formatNumber(item.price)}</td>
               <th className="flex justify-around gap-2">
-                <Button className="btn-outline">View</Button>
+                <Link href={`${ROUTES.views}/${item.id}`}>
+                  <Button className="btn-outline">View</Button>
+                </Link>
                 <Button className="btn-outline" onClick={() => deleteProduct(item.id?.toString())}>
                   Delete
                 </Button>

@@ -1,4 +1,4 @@
-export const postData = async (url: string, data: IProducts) => {
+export const postData = async (url: string, data:object) => {
     try {
         const res = await fetch(url, {
             method: "POST",
