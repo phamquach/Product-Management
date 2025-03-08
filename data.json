@@ -1,0 +1,294 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Smartphone+X1",
+      "name": "Smartphone X1",
+      "brand": "TechCorp",
+      "price": 799,
+      "quantity": 50,
+      "category": "Smartphone",
+      "description": "Smartphone X1 với thiết kế hiện đại, camera chất lượng cao và hiệu năng mạnh mẽ."
+    },
+    {
+      "id": "2",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Laptop+Pro+15",
+      "name": "Laptop Pro 15",
+      "brand": "CompMaster",
+      "price": 1299,
+      "quantity": 30,
+      "category": "Laptop",
+      "description": "Laptop Pro 15 dành cho công việc và giải trí với cấu hình mạnh mẽ, màn hình sắc nét."
+    },
+    {
+      "id": "3",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Tablet+A10",
+      "name": "Máy tính bảng A10",
+      "brand": "TabWorld",
+      "price": 499,
+      "quantity": 40,
+      "category": "Tablet",
+      "description": "Máy tính bảng A10 nhẹ, mỏng, phù hợp cho học tập và giải trí."
+    },
+    {
+      "id": "4",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Smartwatch+S2",
+      "name": "Smartwatch S2",
+      "brand": "WearTech",
+      "price": 199,
+      "quantity": 70,
+      "category": "Smartwatch",
+      "description": "Smartwatch S2 theo dõi sức khỏe và thông báo thông minh, thiết kế thời trang."
+    },
+    {
+      "id": "5",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Headphone+B1",
+      "name": "Tai nghe Bluetooth B1",
+      "brand": "SoundMax",
+      "price": 99,
+      "quantity": 100,
+      "category": "Headphone",
+      "description": "Tai nghe Bluetooth B1 cho chất lượng âm thanh sống động và kết nối ổn định."
+    },
+    {
+      "id": "6",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Printer+L200",
+      "name": "Máy in laser L200",
+      "brand": "PrintSmart",
+      "price": 299,
+      "quantity": 25,
+      "category": "Printer",
+      "description": "Máy in laser L200 in ấn nhanh, chất lượng cao, tiết kiệm mực in."
+    },
+    {
+      "id": "7",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Camera+C300",
+      "name": "Camera an ninh C300",
+      "brand": "SecureCam",
+      "price": 149,
+      "quantity": 60,
+      "category": "Camera",
+      "description": "Camera an ninh C300 hỗ trợ ghi hình ban đêm, kết nối Wi-Fi dễ dàng."
+    },
+    {
+      "id": "8",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=TV+LED+4K",
+      "name": "TV LED 4K Ultra HD",
+      "brand": "ViewPlus",
+      "price": 899,
+      "quantity": 20,
+      "category": "TV",
+      "description": "TV LED 4K Ultra HD mang lại hình ảnh sống động, thiết kế mỏng nhẹ."
+    },
+    {
+      "id": "9",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Mini+Projector",
+      "name": "Máy chiếu Mini",
+      "brand": "ProjectX",
+      "price": 349,
+      "quantity": 35,
+      "category": "Projector",
+      "description": "Máy chiếu Mini nhỏ gọn, dễ dàng kết nối với nhiều thiết bị, phù hợp cho hội thảo."
+    },
+    {
+      "id": "10",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=SSD+1TB",
+      "name": "Ổ cứng SSD 1TB",
+      "brand": "StoragePlus",
+      "price": 159,
+      "quantity": 80,
+      "category": "Storage",
+      "description": "Ổ cứng SSD 1TB tốc độ cao, độ bền tốt, phù hợp cho cả máy tính và laptop."
+    },
+    {
+      "id": "11",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Keyboard+K90",
+      "name": "Bàn phím cơ K90",
+      "brand": "KeyMaster",
+      "price": 129,
+      "quantity": 90,
+      "category": "Keyboard",
+      "description": "Bàn phím cơ K90 mang lại trải nghiệm gõ phím mượt mà, thiết kế đẹp mắt."
+    },
+    {
+      "id": "12",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Wireless+Mouse+M50",
+      "name": "Chuột không dây M50",
+      "brand": "ClickPro",
+      "price": 49,
+      "quantity": 150,
+      "category": "Mouse",
+      "description": "Chuột không dây M50 với độ nhạy cao, pin sử dụng lâu dài và thiết kế tiện lợi."
+    },
+    {
+      "id": "13",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Barcode+Scanner+QScan",
+      "name": "Máy quét mã vạch QScan",
+      "brand": "ScanIt",
+      "price": 89,
+      "quantity": 55,
+      "category": "Scanner",
+      "description": "Máy quét mã vạch QScan giúp tăng hiệu suất quản lý kho và bán hàng."
+    },
+    {
+      "id": "14",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=WiFi+Router+W-Connect",
+      "name": "Bộ phát Wi-Fi W-Connect",
+      "brand": "NetZone",
+      "price": 79,
+      "quantity": 65,
+      "category": "Router",
+      "description": "Bộ phát Wi-Fi W-Connect cung cấp kết nối mạng ổn định cho gia đình và văn phòng."
+    },
+    {
+      "id": "15",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Router+5G+SpeedX",
+      "name": "Router 5G SpeedX",
+      "brand": "NetSpeed",
+      "price": 199,
+      "quantity": 45,
+      "category": "Router",
+      "description": "Router 5G SpeedX với tốc độ kết nối nhanh chóng, phù hợp cho các môi trường đòi hỏi băng thông cao."
+    },
+    {
+      "id": "16",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Bluetooth+Speaker+SoundBoom",
+      "name": "Loa Bluetooth SoundBoom",
+      "brand": "AudioMax",
+      "price": 129,
+      "quantity": 75,
+      "category": "Speaker",
+      "description": "Loa Bluetooth SoundBoom mang đến âm thanh sống động, thiết kế chống nước."
+    },
+    {
+      "id": "17",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Air+Purifier+AirPure",
+      "name": "Máy lọc không khí AirPure",
+      "brand": "BreatheWell",
+      "price": 249,
+      "quantity": 40,
+      "category": "Air Purifier",
+      "description": "Máy lọc không khí AirPure loại bỏ bụi bẩn và vi khuẩn, cải thiện chất lượng không khí."
+    },
+    {
+      "id": "18",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Dash+Cam+DriveSafe",
+      "name": "Camera hành trình DriveSafe",
+      "brand": "RoadEye",
+      "price": 99,
+      "quantity": 70,
+      "category": "Dash Cam",
+      "description": "Camera hành trình DriveSafe ghi lại toàn bộ chuyến đi, hỗ trợ chứng cứ khi cần thiết."
+    },
+    {
+      "id": "19",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Gaming+Console+Z",
+      "name": "Máy chơi game Console Z",
+      "brand": "GameWorld",
+      "price": 499,
+      "quantity": 35,
+      "category": "Gaming Console",
+      "description": "Máy chơi game Console Z với hiệu năng đồ họa cao, trải nghiệm chơi game đỉnh cao."
+    },
+    {
+      "id": "20",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=E-Reader",
+      "name": "Máy đọc sách điện tử E-Reader",
+      "brand": "ReadOn",
+      "price": 149,
+      "quantity": 85,
+      "category": "E-Reader",
+      "description": "Máy đọc sách điện tử E-Reader nhẹ, pin lâu và hỗ trợ định dạng đa dạng."
+    },
+    {
+      "id": "21",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Mobile+SSD+PocketDrive",
+      "name": "Ổ cứng di động PocketDrive",
+      "brand": "DataKeep",
+      "price": 119,
+      "quantity": 60,
+      "category": "External Storage",
+      "description": "Ổ cứng di động PocketDrive dung lượng lớn, tốc độ truyền dữ liệu nhanh chóng."
+    },
+    {
+      "id": "22",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=RAM+16GB",
+      "name": "Bộ nhớ RAM 16GB",
+      "brand": "MemoryPlus",
+      "price": 89,
+      "quantity": 95,
+      "category": "RAM",
+      "description": "Bộ nhớ RAM 16GB tăng hiệu năng làm việc cho máy tính và laptop."
+    },
+    {
+      "id": "23",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=PC+Power+Supply",
+      "name": "Bộ nguồn máy tính PowerMax",
+      "brand": "EnergyTech",
+      "price": 79,
+      "quantity": 50,
+      "category": "Power Supply",
+      "description": "Bộ nguồn máy tính PowerMax ổn định, bảo vệ linh kiện hiệu quả."
+    },
+    {
+      "id": "24",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=LED+Monitor+24inch",
+      "name": "Màn hình LED 24 inch",
+      "brand": "ViewSharp",
+      "price": 229,
+      "quantity": 40,
+      "category": "Monitor",
+      "description": "Màn hình LED 24 inch với độ phân giải cao, màu sắc trung thực và thiết kế mỏng nhẹ."
+    },
+    {
+      "id": "25",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Home+Theater+Soundbar",
+      "name": "Loa soundbar HomeTheater",
+      "brand": "CinemaSound",
+      "price": 349,
+      "quantity": 30,
+      "category": "Soundbar",
+      "description": "Loa soundbar HomeTheater mang đến âm thanh sống động cho không gian giải trí tại gia."
+    },
+    {
+      "id": "26",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Document+Scanner+ScanPro",
+      "name": "Máy quét tài liệu ScanPro",
+      "brand": "DocuScan",
+      "price": 199,
+      "quantity": 45,
+      "category": "Scanner",
+      "description": "Máy quét tài liệu ScanPro giúp số hóa giấy tờ nhanh chóng, hiệu quả."
+    },
+    {
+      "id": "27",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Ergonomic+Mouse+Pad",
+      "name": "Bàn di chuột Ergonomic",
+      "brand": "ComfortTech",
+      "price": 39,
+      "quantity": 120,
+      "category": "Mouse Pad",
+      "description": "Bàn di chuột Ergonomic thiết kế công thái học, giúp giảm căng thẳng cho người dùng."
+    },
+    {
+      "id": "28",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Wireless+Charger+QiCharge",
+      "name": "Bộ sạc không dây QiCharge",
+      "brand": "WirelessPower",
+      "price": 59,
+      "quantity": 85,
+      "category": "Wireless Charger",
+      "description": "Bộ sạc không dây QiCharge tương thích với nhiều thiết bị, tiện lợi và an toàn."
+    },
+    {
+      "id": "29",
+      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Handheld+Console+PocketGame",
+      "name": "Máy chơi game cầm tay PocketGame",
+      "brand": "PlayOn",
+      "price": 179,
+      "quantity": 55,
+      "category": "Handheld Console",
+      "description": "Máy chơi game cầm tay PocketGame thiết kế nhỏ gọn, nhiều trò chơi giải trí."
+    }
+  ]
+}

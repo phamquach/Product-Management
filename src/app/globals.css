@@ -14,7 +14,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #3e3e3e;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
@@ -22,4 +22,21 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* customs animations */
+.animation-scale-in-center {
+  animation: scale-in-center 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
