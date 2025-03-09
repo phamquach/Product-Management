@@ -1,64 +1,66 @@
 import { BellRing, LogOut, Menu, User, User2 } from 'lucide-react';
+import Button from './Button';
+import Input from './Input';
 
 interface IProps {
-  handleShowMenu: () => void;
+  handleShowMenu?: () => void;
+  isLogin?: boolean;
 }
-const isLogin = true;
-export default function Navbar({ handleShowMenu }: IProps) {
+
+export default function Navbar({ handleShowMenu = () => {}, isLogin = false }: IProps) {
+  const buttonClass = 'btn-ghost rounded-field focus:shadow-xl';
+
   return (
     <div className="navbar gap-3.5 bg-base-100 shadow-sm">
+      {/* Menu Button */}
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost" onClick={handleShowMenu}>
-          <Menu />
-        </button>
+        <Button className="btn-square btn-ghost lg:btn-sm" onClick={handleShowMenu} aria-label="Open menu">
+          <Menu size={'100%'} />
+        </Button>
       </div>
 
-      <div className="flex-1 gap-2 flex justify-end">
-        <label className="input">
-          <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input type="search" required placeholder="Search" />
-        </label>
+      {/* Search + Actions */}
+      <div className="flex-1 flex justify-end items-center gap-2">
+        <Input placeholder="Search..." />
 
-        <div className='flex items-center'>
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost md:btn-md btn-sm rounded-field focus:shadow-xl">
-              <BellRing />
-            </div>
-            <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow-xl">
+        {/* Notifications */}
+        <div className="dropdown dropdown-end">
+          <Button className={buttonClass} aria-label="Notifications">
+            <BellRing />
+          </Button>
+          <ul
+            className="menu dropdown-content bg-base-100 rounded-box z-10 mt-4 w-52 2xl:min-w-xl 2xl:gap-5 2xl:text-3xl p-2 shadow-xl"
+            role="menu"
+          >
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+          </ul>
+        </div>
+
+        {/* User Menu */}
+        <div className="dropdown dropdown-end">
+          <Button className={buttonClass} aria-label="User menu">
+            <User2 />
+          </Button>
+          {isLogin && (
+            <ul
+              className="dropdown-content menu bg-base-100 rounded-box z-10 mt-4 w-52 2xl:min-w-xl 2xl:gap-5 2xl:text-3xl p-2 shadow-xl"
+              role="menu"
+            >
               <li>
-                <a>Item 1</a>
+                <button>
+                  <User />
+                  Profile
+                </button>
               </li>
               <li>
-                <a>Item 2</a>
+                <button>
+                  <LogOut />
+                  Logout
+                </button>
               </li>
             </ul>
-          </div>
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost md:btn-md btn-sm rounded-field focus:shadow-xl">
-              <User2 />
-            </div>
-            {isLogin && (
-              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow-xl ">
-                <li>
-                  <button>
-                    <User size={20} />
-                    Profile
-                  </button>
-                </li>
-                <li>
-                  <button>
-                    <LogOut size={20} />
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>

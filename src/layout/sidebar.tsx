@@ -2,50 +2,58 @@ import ROUTES from '@/lib/routes';
 import { X, Home, Box, ShoppingCart, BarChart2, Settings } from 'lucide-react';
 import NavLink from '../customs/NavLink';
 import useIsDesktop from '@/hook/useDesktop';
+import Button from '@/components/Button';
+import { useCallback, useMemo } from 'react';
 
-interface Iprops {
+interface IProps {
   handleShowSideBar: () => void;
 }
+
 const menuItems = [
-  { name: 'Dashboard', icon: <Home size={20} />, link: ROUTES.home },
-  { name: 'Products', icon: <Box size={20} />, link: ROUTES.products },
-  { name: 'Orders', icon: <ShoppingCart size={20} />, link: ROUTES.orders },
-  { name: 'Analytics', icon: <BarChart2 size={20} />, link: ROUTES.analytics },
-  { name: 'Settings', icon: <Settings size={20} />, link: ROUTES.settings },
+  { name: 'Dashboard', icon: <Home />, link: ROUTES.home },
+  { name: 'Products', icon: <Box />, link: ROUTES.products },
+  { name: 'Orders', icon: <ShoppingCart />, link: ROUTES.orders },
+  { name: 'Analytics', icon: <BarChart2 />, link: ROUTES.analytics },
+  { name: 'Settings', icon: <Settings />, link: ROUTES.settings },
 ];
 
-const Sidebar = (props: Iprops) => {
-  const { handleShowSideBar } = props;
-  const isDestop = useIsDesktop();
+export default function Sidebar({ handleShowSideBar }: IProps) {
+  const isDesktop = useIsDesktop();
+
+  // Hàm tối ưu click cho mobile
+  const handleClick = useCallback(() => {
+    if (!isDesktop) handleShowSideBar();
+  }, [isDesktop, handleShowSideBar]);
+
+  // ClassName tính toán bằng useMemo
+  const sidebarClass = useMemo(() => 'h-dvh bg-gray-900 text-white w-full p-5', []);
 
   return (
-    <div className="w-64 flex overflow-hidden">
-      <div className={` h-dvh bg-gray-900 text-white w-64 p-5`}>
+    <aside className="w-full flex overflow-hidden">
+      <div className={sidebarClass}>
         <div className="flex justify-between items-center mb-5">
-          <h1 className="text-xl font-bold">Admin Panel</h1>
-          <button className="block lg:hidden" onClick={handleShowSideBar}>
+          <h1 className="2xl:text-5xl text-xl font-bold">Admin Panel</h1>
+          <Button className="block lg:hidden bg-gray-900 hover:bg-gray-800 text-white border-none shadow-none" onClick={handleShowSideBar}>
             <X size={24} />
-          </button>
+          </Button>
         </div>
         <nav>
           <ul>
-            {menuItems.map((item, index) => (
-              <li key={index} className="mb-3">
+            {menuItems.map(({ name, icon, link }) => (
+              <li key={name} className="mb-3">
                 <NavLink
-                  href={item.link}
+                  href={link}
                   className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-800"
-                  onClick={() => !isDestop && handleShowSideBar()}
+                  onClick={handleClick}
                 >
-                  {item.icon}
-                  <span className="text-sm">{item.name}</span>
+                  {icon}
+                  {name}
                 </NavLink>
               </li>
             ))}
           </ul>
         </nav>
       </div>
-    </div>
+    </aside>
   );
-};
-
-export default Sidebar;
+}

@@ -8,30 +8,38 @@ import Search from '@/components/Search';
 import Pagination from '@/components/Pagination';
 
 export default function Products() {
-  const { data, isLoading } = useProducts(process.env.NEXT_PUBLIC_API_URL_PRODUCTS ?? '');
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [chooseCategory, setChooseCategory] = useState<string>('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const debouncedChooseTerm = useDebounce(chooseCategory, 500);
+  const { data = [], isLoading } = useProducts(process.env.NEXT_PUBLIC_API_URL_PRODUCTS ?? '');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [chooseCategory, setChooseCategory] = useState('');
+  const debouncedSearchTerm = useDebounce(searchTerm, 800);
+  const debouncedChooseTerm = useDebounce(chooseCategory, 800);
 
   const filteredProducts = useMemo(() => {
-    if (!data) return [];
-    const lowerSearchTerm = debouncedSearchTerm.toLowerCase().trim();
-    const lowerChooseCategory = debouncedChooseTerm.toLowerCase().trim();
-    return data.filter(
-      (item: IProducts) =>
-        (item.id.toString().toLowerCase().includes(lowerSearchTerm) ||
-          item.name.toLowerCase().includes(lowerSearchTerm)) &&
-        item.category.toLowerCase().includes(lowerChooseCategory),
-    );
+    if (!debouncedSearchTerm && !debouncedChooseTerm) return data;
+
+    const lowerSearchTerm = debouncedSearchTerm.trim().toLowerCase();
+    const lowerChooseCategory = debouncedChooseTerm.trim().toLowerCase();
+
+    return data.filter(({ id, name, category }: IProducts) => {
+      const matchSearch = lowerSearchTerm
+        ? id.toString().includes(lowerSearchTerm) || name.toLowerCase().includes(lowerSearchTerm)
+        : true;
+
+      const matchCategory = lowerChooseCategory
+        ? category.toLowerCase().includes(lowerChooseCategory)
+        : true;
+
+      return matchSearch && matchCategory;
+    });
   }, [data, debouncedSearchTerm, debouncedChooseTerm]);
 
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-3">
       <PHeader />
       <Search
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        chooseCategory={chooseCategory}
         setChooseCategory={setChooseCategory}
         product={data}
       />
@@ -40,7 +48,7 @@ export default function Products() {
           Loading <span className="loading loading-dots loading-xl"></span>
         </div>
       ) : (
-      <Pagination data={filteredProducts} pageSize={6} />
+        <Pagination data={filteredProducts} pageSize={20} />
       )}
     </div>
   );

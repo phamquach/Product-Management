@@ -51,16 +51,6 @@
       "description": "Tai nghe Bluetooth B1 cho chất lượng âm thanh sống động và kết nối ổn định."
     },
     {
-      "id": "6",
-      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Printer+L200",
-      "name": "Máy in laser L200",
-      "brand": "PrintSmart",
-      "price": 299,
-      "quantity": 25,
-      "category": "Printer",
-      "description": "Máy in laser L200 in ấn nhanh, chất lượng cao, tiết kiệm mực in."
-    },
-    {
       "id": "7",
       "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Camera+C300",
       "name": "Camera an ninh C300",
@@ -279,16 +269,6 @@
       "quantity": 85,
       "category": "Wireless Charger",
       "description": "Bộ sạc không dây QiCharge tương thích với nhiều thiết bị, tiện lợi và an toàn."
-    },
-    {
-      "id": "29",
-      "img": "https://dummyimage.com/300x300/cccccc/000.png&text=Handheld+Console+PocketGame",
-      "name": "Máy chơi game cầm tay PocketGame",
-      "brand": "PlayOn",
-      "price": 179,
-      "quantity": 55,
-      "category": "Handheld Console",
-      "description": "Máy chơi game cầm tay PocketGame thiết kế nhỏ gọn, nhiều trò chơi giải trí."
     }
   ]
 }

@@ -14,7 +14,7 @@ export default function useIsDesktop(breakpoint: number = 1024) {
 
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
+  }, [breakpoint]);
 
   return isDesktop;
 }
